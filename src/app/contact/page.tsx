@@ -2,11 +2,12 @@ import Container from "@/components/Container";
 import { MotionFadeUp, MotionItem, MotionStagger } from "@/components/Motion";
 import SectionHeading from "@/components/SectionHeading";
 import { buildPageMetadata } from "@/lib/seo";
+import ContactForm from "@/app/contact/ContactForm";
 
 export const metadata = buildPageMetadata({
-  title: "LA CREATIVO GROUP, LLC — Contact",
+  title: "LA CREATIVO GROUP, LLC — Administrative Inquiries",
   description:
-    "Administrative contact for LA CREATIVO GROUP, LLC regarding governance, compliance, or portfolio operations with a measured response cadence.",
+    "Administrative inquiries for LA CREATIVO GROUP, LLC. Sales outreach is not monitored.",
   path: "/contact",
 });
 
@@ -14,14 +15,14 @@ export default function ContactPage() {
   return (
     <section className="bg-white py-16 sm:py-20">
       <Container>
-        <h1 className="sr-only">Contact</h1>
+        <h1 className="sr-only">Administrative Inquiries</h1>
         <div className="grid gap-12 lg:grid-cols-[1.1fr_0.9fr]">
           <MotionStagger className="space-y-6">
             <MotionItem>
               <SectionHeading
                 eyebrow="Contact"
-                title="Administrative inquiries only"
-                description="We only review messages related to governance, compliance, or portfolio operations. Sales outreach is not accepted."
+                title="Administrative Inquiries"
+                description="This channel is reserved for administrative matters. Sales outreach is not monitored."
               />
             </MotionItem>
             <MotionItem className="rounded-2xl border border-border bg-section p-6">
@@ -34,7 +35,7 @@ export default function ContactPage() {
             </MotionItem>
             <MotionItem>
               <p className="text-sm text-foreground-muted">
-                Please expect a measured response cadence. We do not engage in
+                Please allow for a measured response cadence. We do not engage in
                 promotional partnerships or unsolicited proposals.
               </p>
             </MotionItem>
@@ -44,47 +45,9 @@ export default function ContactPage() {
               Administrative message
             </h3>
             <p className="mt-2 text-sm text-foreground-muted">
-              Form submissions are currently disabled.
+              Use the form below for administrative requests only.
             </p>
-            <form className="mt-6 space-y-4">
-              <div className="space-y-2">
-                <label className="text-xs font-semibold uppercase tracking-[0.3em] text-foreground-muted">
-                  Name
-                </label>
-                <input
-                  type="text"
-                  placeholder="Full name"
-                  className="w-full rounded-xl border border-border px-4 py-3 text-sm"
-                />
-              </div>
-              <div className="space-y-2">
-                <label className="text-xs font-semibold uppercase tracking-[0.3em] text-foreground-muted">
-                  Email
-                </label>
-                <input
-                  type="email"
-                  placeholder="name@organization.com"
-                  className="w-full rounded-xl border border-border px-4 py-3 text-sm"
-                />
-              </div>
-              <div className="space-y-2">
-                <label className="text-xs font-semibold uppercase tracking-[0.3em] text-foreground-muted">
-                  Message
-                </label>
-                <textarea
-                  rows={4}
-                  placeholder="Please provide an administrative summary."
-                  className="w-full rounded-xl border border-border px-4 py-3 text-sm"
-                />
-              </div>
-              <button
-                type="button"
-                disabled
-                className="w-full rounded-full border border-border px-6 py-3 text-sm font-semibold text-foreground-muted"
-              >
-                Submissions currently closed
-              </button>
-            </form>
+            <ContactForm />
           </MotionFadeUp>
         </div>
       </Container>
