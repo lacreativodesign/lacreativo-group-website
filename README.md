@@ -20,6 +20,24 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
+## Administrative contact form (SMTP)
+
+Required environment variables (set locally in `.env.local`, never commit secrets):
+
+- `SMTP_HOST`
+- `SMTP_PORT`
+- `SMTP_SECURE`
+- `SMTP_USER`
+- `SMTP_PASS`
+- `CONTACT_TO_EMAIL`
+- `CONTACT_FROM_EMAIL`
+- `SITE_NAME`
+- `SITE_DOMAIN`
+
+Hostinger SMTP typically uses port `465` (SSL) or `587` (TLS). The app auto-detects secure mode when `SMTP_SECURE=true` or `SMTP_PORT=465`.
+
+`SITE_DOMAIN` should include the `https://` scheme (the application normalizes it automatically if missing).
+
 ## Learn More
 
 To learn more about Next.js, take a look at the following resources:
