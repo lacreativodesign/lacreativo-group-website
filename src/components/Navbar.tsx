@@ -2,7 +2,8 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
 import Container from "@/components/Container";
 
 const navLinks = [
@@ -14,9 +15,26 @@ const navLinks = [
 
 export default function Navbar() {
   const [logoError, setLogoError] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const pathname = usePathname();
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 8);
+    };
+
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-border bg-white/95 backdrop-blur">
+    <header
+      className={`sticky top-0 z-50 border-b bg-white/80 backdrop-blur transition-colors duration-300 ${
+        isScrolled ? "border-border/60 bg-white/95" : "border-border/30"
+      }`}
+    >
       <Container className="flex items-center justify-between py-4">
         <Link href="/" className="flex items-center gap-3">
           {!logoError ? (
@@ -39,7 +57,11 @@ export default function Navbar() {
             <Link
               key={link.href}
               href={link.href}
-              className="transition-colors hover:text-accent"
+              className={`relative transition-colors duration-200 ease-out after:absolute after:-bottom-2 after:left-0 after:h-px after:w-full after:origin-left after:scale-x-0 after:bg-accent after:transition-transform after:duration-300 after:ease-out hover:text-accent hover:after:scale-x-100 motion-reduce:after:transition-none ${
+                pathname === link.href
+                  ? "text-accent after:scale-x-100"
+                  : ""
+              }`}
             >
               {link.label}
             </Link>
@@ -48,7 +70,7 @@ export default function Navbar() {
         <div className="md:hidden">
           <Link
             href="/contact"
-            className="text-xs font-semibold uppercase tracking-[0.3em] text-foreground-muted"
+            className="link-underline text-xs font-semibold uppercase tracking-[0.3em] text-foreground-muted"
           >
             Contact
           </Link>

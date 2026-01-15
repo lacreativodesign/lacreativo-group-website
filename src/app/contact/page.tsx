@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Container from "@/components/Container";
+import { MotionFadeUp, MotionItem, MotionStagger } from "@/components/Motion";
 import SectionHeading from "@/components/SectionHeading";
 
 export const metadata: Metadata = {
@@ -13,26 +14,30 @@ export default function ContactPage() {
     <section className="bg-white py-16 sm:py-20">
       <Container>
         <div className="grid gap-12 lg:grid-cols-[1.1fr_0.9fr]">
-          <div className="space-y-6">
-            <SectionHeading
-              eyebrow="Contact"
-              title="Administrative inquiries only"
-              description="We only review messages related to governance, compliance, or portfolio operations. Sales outreach is not accepted."
-            />
-            <div className="rounded-2xl border border-border bg-section p-6">
+          <MotionStagger className="space-y-6">
+            <MotionItem>
+              <SectionHeading
+                eyebrow="Contact"
+                title="Administrative inquiries only"
+                description="We only review messages related to governance, compliance, or portfolio operations. Sales outreach is not accepted."
+              />
+            </MotionItem>
+            <MotionItem className="rounded-2xl border border-border bg-section p-6">
               <p className="text-sm font-semibold text-foreground">
                 Administrative contact
               </p>
               <p className="mt-2 text-sm text-foreground-muted">
                 info@lacreativogroup.com
               </p>
-            </div>
-            <p className="text-sm text-foreground-muted">
-              Please expect a measured response cadence. We do not engage in
-              promotional partnerships or unsolicited proposals.
-            </p>
-          </div>
-          <div className="rounded-2xl border border-border bg-white p-8 shadow-sm">
+            </MotionItem>
+            <MotionItem>
+              <p className="text-sm text-foreground-muted">
+                Please expect a measured response cadence. We do not engage in
+                promotional partnerships or unsolicited proposals.
+              </p>
+            </MotionItem>
+          </MotionStagger>
+          <MotionFadeUp className="rounded-2xl border border-border bg-white p-8 shadow-sm">
             <h3 className="text-lg font-semibold text-foreground">
               Administrative message
             </h3>
@@ -78,7 +83,7 @@ export default function ContactPage() {
                 Submissions currently closed
               </button>
             </form>
-          </div>
+          </MotionFadeUp>
         </div>
       </Container>
     </section>

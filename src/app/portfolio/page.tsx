@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import BrandCard from "@/components/BrandCard";
 import Container from "@/components/Container";
 import LogoWall from "@/components/LogoWall";
+import { MotionFadeUp } from "@/components/Motion";
 import SectionHeading from "@/components/SectionHeading";
 import {
   digitalGrowthBrands,
@@ -19,20 +20,24 @@ export default function PortfolioPage() {
   return (
     <div className="bg-white py-16 sm:py-20">
       <Container>
-        <SectionHeading
-          eyebrow="Portfolio"
-          title="Operating companies aligned under one governance structure"
-          description="Our portfolio includes public-facing brands, infrastructure capabilities, and digital growth assets."
-        />
+        <MotionFadeUp>
+          <SectionHeading
+            eyebrow="Portfolio"
+            title="Operating companies aligned under one governance structure"
+            description="Our portfolio includes public-facing brands, infrastructure capabilities, and digital growth assets."
+          />
+        </MotionFadeUp>
       </Container>
 
       <section className="mt-12 bg-section py-12">
         <Container>
-          <SectionHeading
-            eyebrow="Public Brands"
-            title="Flagship companies"
-            description="Operating brands that represent our most visible market-facing businesses."
-          />
+          <MotionFadeUp>
+            <SectionHeading
+              eyebrow="Public Brands"
+              title="Flagship companies"
+              description="Operating brands that represent our most visible market-facing businesses."
+            />
+          </MotionFadeUp>
           <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {publicBrands.map((brand) => (
               <BrandCard key={brand.name} brand={brand} />
@@ -47,11 +52,13 @@ export default function PortfolioPage() {
 
       <section className="py-12">
         <Container>
-          <SectionHeading
-            eyebrow="Infrastructure"
-            title="Shared systems and operational backbone"
-            description="Core infrastructure ensures resilience, security, and continuity across the group."
-          />
+          <MotionFadeUp>
+            <SectionHeading
+              eyebrow="Infrastructure"
+              title="Shared systems and operational backbone"
+              description="Core infrastructure ensures resilience, security, and continuity across the group."
+            />
+          </MotionFadeUp>
           <div className="mt-10 grid gap-6 md:grid-cols-2">
             {infrastructureBrands.map((brand) => (
               <BrandCard key={brand.name} brand={brand} />
@@ -65,11 +72,13 @@ export default function PortfolioPage() {
 
       <section className="bg-section py-12">
         <Container>
-          <SectionHeading
-            eyebrow="Digital Growth Assets"
-            title="Specialized platforms supporting the portfolio"
-            description="Dedicated assets that provide scalable digital services, growth capabilities, and operational reach."
-          />
+          <MotionFadeUp>
+            <SectionHeading
+              eyebrow="Digital Growth Assets"
+              title="Specialized platforms supporting the portfolio"
+              description="Dedicated assets that provide scalable digital services, growth capabilities, and operational reach."
+            />
+          </MotionFadeUp>
           <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {digitalGrowthBrands.map((brand) => (
               <BrandCard key={brand.name} brand={brand} />

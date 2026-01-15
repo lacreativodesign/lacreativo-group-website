@@ -5,6 +5,8 @@ import BrandCard from "@/components/BrandCard";
 import { ButtonLink } from "@/components/Button";
 import Container from "@/components/Container";
 import ImageWithFallback from "@/components/ImageWithFallback";
+import { MotionFadeIn, MotionFadeUp, MotionItem, MotionStagger } from "@/components/Motion";
+import ParallaxImage from "@/components/ParallaxImage";
 import SectionHeading from "@/components/SectionHeading";
 import { publicBrands } from "@/lib/brands";
 
@@ -38,50 +40,60 @@ export default function Home() {
       <section className="bg-white py-16 sm:py-20">
         <Container>
           <div className="grid gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
-            <div className="space-y-8">
-              <p className="text-xs font-semibold uppercase tracking-[0.3em] text-foreground-muted">
-                LA CREATIVO GROUP, LLC
-              </p>
-              <h1 className="text-4xl font-semibold text-foreground sm:text-5xl">
-                A Holding Group Built on Trust, Discipline, and Purpose
-              </h1>
-              <p className="text-base text-foreground-muted sm:text-lg">
-                We provide governance, shared standards, and long-term oversight
-                for a focused portfolio of operating brands. Our mandate is
-                stewardship, continuity, and accountable value creation.
-              </p>
-              <div className="flex flex-wrap items-center gap-4">
-                <ButtonLink href="/portfolio">Explore the Portfolio</ButtonLink>
-                <Link
-                  href="/who-we-are"
-                  className="text-sm font-semibold text-foreground transition-colors hover:text-accent"
-                >
-                  Who We Are
-                </Link>
-              </div>
-            </div>
-            <div className="relative h-[320px] w-full sm:h-[380px]">
+            <MotionStagger className="space-y-8">
+              <MotionItem>
+                <p className="text-xs font-semibold uppercase tracking-[0.3em] text-foreground-muted">
+                  LA CREATIVO GROUP, LLC
+                </p>
+              </MotionItem>
+              <MotionItem>
+                <h1 className="text-4xl font-semibold text-foreground sm:text-5xl">
+                  A Holding Group Built on Trust, Discipline, and Purpose
+                </h1>
+              </MotionItem>
+              <MotionItem>
+                <p className="text-base text-foreground-muted sm:text-lg">
+                  We provide governance, shared standards, and long-term oversight
+                  for a focused portfolio of operating brands. Our mandate is
+                  stewardship, continuity, and accountable value creation.
+                </p>
+              </MotionItem>
+              <MotionItem>
+                <div className="flex flex-wrap items-center gap-4">
+                  <ButtonLink href="/portfolio">Explore the Portfolio</ButtonLink>
+                  <Link
+                    href="/who-we-are"
+                    className="link-underline text-sm font-semibold text-foreground transition-colors hover:text-accent"
+                  >
+                    Who We Are
+                  </Link>
+                </div>
+              </MotionItem>
+            </MotionStagger>
+            <ParallaxImage className="relative h-[320px] w-full sm:h-[380px]">
               <ImageWithFallback
                 src="/images/ai/hero.jpg"
                 alt="Executive boardroom"
                 fill
                 sizes="(max-width: 1024px) 100vw, 40vw"
-                className="rounded-3xl object-cover"
+                className="rounded-2xl object-cover shadow-sm"
                 fallbackText="Strategic overview"
               />
-            </div>
+            </ParallaxImage>
           </div>
         </Container>
       </section>
 
       <section className="bg-section py-16 sm:py-20">
         <Container>
-          <SectionHeading
-            eyebrow="Operating Pillars"
-            title="Governance-led structure with disciplined execution"
-            description="Three commitments guide every decision and ensure the longevity of our portfolio."
-          />
-          <div className="mt-12 grid gap-8 lg:grid-cols-3">
+          <MotionFadeUp>
+            <SectionHeading
+              eyebrow="Operating Pillars"
+              title="Governance-led structure with disciplined execution"
+              description="Three commitments guide every decision and ensure the longevity of our portfolio."
+            />
+          </MotionFadeUp>
+          <MotionStagger className="mt-12 grid gap-8 lg:grid-cols-3">
             {[
               {
                 icon: Landmark,
@@ -102,7 +114,7 @@ export default function Home() {
                   "Measured growth strategies that prioritize durability, stability, and sustainable outcomes.",
               },
             ].map((pillar) => (
-              <div
+              <MotionItem
                 key={pillar.title}
                 className="rounded-2xl border border-border bg-white p-6"
               >
@@ -113,19 +125,21 @@ export default function Home() {
                 <p className="mt-3 text-sm text-foreground-muted">
                   {pillar.copy}
                 </p>
-              </div>
+              </MotionItem>
             ))}
-          </div>
+          </MotionStagger>
         </Container>
       </section>
 
       <section className="bg-white py-16 sm:py-20">
         <Container>
-          <SectionHeading
-            eyebrow="Portfolio"
-            title="Public brands under disciplined oversight"
-            description="Flagship operating companies aligned to shared governance and enterprise standards."
-          />
+          <MotionFadeUp>
+            <SectionHeading
+              eyebrow="Portfolio"
+              title="Public brands under disciplined oversight"
+              description="Flagship operating companies aligned to shared governance and enterprise standards."
+            />
+          </MotionFadeUp>
           <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {publicBrands.map((brand) => (
               <BrandCard key={brand.name} brand={brand} />
@@ -137,45 +151,53 @@ export default function Home() {
       <section className="bg-section py-16 sm:py-20">
         <Container>
           <div className="grid gap-10 lg:grid-cols-[1fr_1.1fr] lg:items-center">
-            <div className="relative h-[280px] w-full sm:h-[320px]">
+            <MotionFadeIn className="relative h-[280px] w-full sm:h-[320px]">
               <ImageWithFallback
                 src="/images/ai/operations.jpg"
                 alt="Operational review"
                 fill
                 sizes="(max-width: 1024px) 100vw, 45vw"
-                className="rounded-3xl object-cover"
+                className="rounded-2xl object-cover shadow-sm"
                 fallbackText="Operating philosophy"
               />
-            </div>
-            <div className="space-y-6">
-              <SectionHeading
-                eyebrow="Operating Philosophy"
-                title="Governance-backed execution across every business"
-                description="Our holding structure reinforces consistency while allowing each operating brand to deliver in its market."
-              />
-              <p className="text-sm text-foreground-muted">
-                We align leadership teams, establish portfolio-wide policies, and
-                maintain a measured cadence of reviews to ensure clarity and
-                accountability.
-              </p>
-              <ul className="space-y-3 text-sm text-foreground-muted">
-                <li>• Quarterly operating reviews with standardized reporting.</li>
-                <li>• Shared risk, compliance, and capital allocation oversight.</li>
-                <li>• Balanced growth targets with clear stewardship metrics.</li>
-              </ul>
-            </div>
+            </MotionFadeIn>
+            <MotionStagger className="space-y-6">
+              <MotionItem>
+                <SectionHeading
+                  eyebrow="Operating Philosophy"
+                  title="Governance-backed execution across every business"
+                  description="Our holding structure reinforces consistency while allowing each operating brand to deliver in its market."
+                />
+              </MotionItem>
+              <MotionItem>
+                <p className="text-sm text-foreground-muted">
+                  We align leadership teams, establish portfolio-wide policies, and
+                  maintain a measured cadence of reviews to ensure clarity and
+                  accountability.
+                </p>
+              </MotionItem>
+              <MotionItem>
+                <ul className="space-y-3 text-sm text-foreground-muted">
+                  <li>• Quarterly operating reviews with standardized reporting.</li>
+                  <li>• Shared risk, compliance, and capital allocation oversight.</li>
+                  <li>• Balanced growth targets with clear stewardship metrics.</li>
+                </ul>
+              </MotionItem>
+            </MotionStagger>
           </div>
         </Container>
       </section>
 
       <section className="bg-white py-16 sm:py-20">
         <Container>
-          <SectionHeading
-            eyebrow="Values"
-            title="Principled stewardship at every level"
-            description="Values guide our governance, shape our partnerships, and reinforce trust."
-          />
-          <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+          <MotionFadeUp>
+            <SectionHeading
+              eyebrow="Values"
+              title="Principled stewardship at every level"
+              description="Values guide our governance, shape our partnerships, and reinforce trust."
+            />
+          </MotionFadeUp>
+          <MotionStagger className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
             {[
               "Integrity",
               "Accountability",
@@ -183,14 +205,14 @@ export default function Home() {
               "Excellence",
               "Responsible Growth",
             ].map((value) => (
-              <div
+              <MotionItem
                 key={value}
                 className="rounded-2xl border border-border bg-section px-6 py-8 text-center text-sm font-semibold text-foreground"
               >
                 {value}
-              </div>
+              </MotionItem>
             ))}
-          </div>
+          </MotionStagger>
         </Container>
       </section>
     </>

@@ -19,7 +19,7 @@ export default function LogoWall({ brands }: LogoWallProps) {
         return (
           <div
             key={brand.name}
-            className="flex h-24 items-center justify-center rounded-xl border border-dashed border-border bg-white px-4"
+            className="flex h-24 items-center justify-center rounded-xl border border-dashed border-border bg-white px-4 transition-opacity duration-200 ease-out hover:opacity-70 motion-reduce:transition-none"
           >
             {brand.logoPath && !hasError ? (
               <Image
