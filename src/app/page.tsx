@@ -1,65 +1,198 @@
-import Image from "next/image";
+import type { Metadata } from "next";
+import Link from "next/link";
+import { Landmark, LineChart, Scale } from "lucide-react";
+import BrandCard from "@/components/BrandCard";
+import { ButtonLink } from "@/components/Button";
+import Container from "@/components/Container";
+import ImageWithFallback from "@/components/ImageWithFallback";
+import SectionHeading from "@/components/SectionHeading";
+import { publicBrands } from "@/lib/brands";
+
+export const metadata: Metadata = {
+  title: "Home",
+  description:
+    "LA CREATIVO GROUP, LLC is a holding group anchored in governance, operational discipline, and long-term value creation.",
+};
+
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "LA CREATIVO GROUP, LLC",
+  url: "https://www.lacreativogroup.com",
+  description:
+    "A holding group built on trust, discipline, and purpose with a focus on long-term stewardship.",
+  contactPoint: {
+    "@type": "ContactPoint",
+    contactType: "administrative",
+    email: "info@lacreativogroup.com",
+  },
+};
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+      />
+      <section className="bg-white py-16 sm:py-20">
+        <Container>
+          <div className="grid gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
+            <div className="space-y-8">
+              <p className="text-xs font-semibold uppercase tracking-[0.3em] text-foreground-muted">
+                LA CREATIVO GROUP, LLC
+              </p>
+              <h1 className="text-4xl font-semibold text-foreground sm:text-5xl">
+                A Holding Group Built on Trust, Discipline, and Purpose
+              </h1>
+              <p className="text-base text-foreground-muted sm:text-lg">
+                We provide governance, shared standards, and long-term oversight
+                for a focused portfolio of operating brands. Our mandate is
+                stewardship, continuity, and accountable value creation.
+              </p>
+              <div className="flex flex-wrap items-center gap-4">
+                <ButtonLink href="/portfolio">Explore the Portfolio</ButtonLink>
+                <Link
+                  href="/who-we-are"
+                  className="text-sm font-semibold text-foreground transition-colors hover:text-accent"
+                >
+                  Who We Are
+                </Link>
+              </div>
+            </div>
+            <div className="relative h-[320px] w-full sm:h-[380px]">
+              <ImageWithFallback
+                src="/images/ai/hero.jpg"
+                alt="Executive boardroom"
+                fill
+                sizes="(max-width: 1024px) 100vw, 40vw"
+                className="rounded-3xl object-cover"
+                fallbackText="Strategic overview"
+              />
+            </div>
+          </div>
+        </Container>
+      </section>
+
+      <section className="bg-section py-16 sm:py-20">
+        <Container>
+          <SectionHeading
+            eyebrow="Operating Pillars"
+            title="Governance-led structure with disciplined execution"
+            description="Three commitments guide every decision and ensure the longevity of our portfolio."
+          />
+          <div className="mt-12 grid gap-8 lg:grid-cols-3">
+            {[
+              {
+                icon: Landmark,
+                title: "Governance & Oversight",
+                copy:
+                  "Board-level accountability, clear reporting, and disciplined stewardship across all operating entities.",
+              },
+              {
+                icon: Scale,
+                title: "Operational Discipline",
+                copy:
+                  "Shared standards for risk management, financial control, and performance clarity.",
+              },
+              {
+                icon: LineChart,
+                title: "Long-Term Value Creation",
+                copy:
+                  "Measured growth strategies that prioritize durability, stability, and sustainable outcomes.",
+              },
+            ].map((pillar) => (
+              <div
+                key={pillar.title}
+                className="rounded-2xl border border-border bg-white p-6"
+              >
+                <pillar.icon className="h-8 w-8 text-accent" />
+                <h3 className="mt-4 text-xl font-semibold text-foreground">
+                  {pillar.title}
+                </h3>
+                <p className="mt-3 text-sm text-foreground-muted">
+                  {pillar.copy}
+                </p>
+              </div>
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      <section className="bg-white py-16 sm:py-20">
+        <Container>
+          <SectionHeading
+            eyebrow="Portfolio"
+            title="Public brands under disciplined oversight"
+            description="Flagship operating companies aligned to shared governance and enterprise standards."
+          />
+          <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {publicBrands.map((brand) => (
+              <BrandCard key={brand.name} brand={brand} />
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      <section className="bg-section py-16 sm:py-20">
+        <Container>
+          <div className="grid gap-10 lg:grid-cols-[1fr_1.1fr] lg:items-center">
+            <div className="relative h-[280px] w-full sm:h-[320px]">
+              <ImageWithFallback
+                src="/images/ai/operations.jpg"
+                alt="Operational review"
+                fill
+                sizes="(max-width: 1024px) 100vw, 45vw"
+                className="rounded-3xl object-cover"
+                fallbackText="Operating philosophy"
+              />
+            </div>
+            <div className="space-y-6">
+              <SectionHeading
+                eyebrow="Operating Philosophy"
+                title="Governance-backed execution across every business"
+                description="Our holding structure reinforces consistency while allowing each operating brand to deliver in its market."
+              />
+              <p className="text-sm text-foreground-muted">
+                We align leadership teams, establish portfolio-wide policies, and
+                maintain a measured cadence of reviews to ensure clarity and
+                accountability.
+              </p>
+              <ul className="space-y-3 text-sm text-foreground-muted">
+                <li>• Quarterly operating reviews with standardized reporting.</li>
+                <li>• Shared risk, compliance, and capital allocation oversight.</li>
+                <li>• Balanced growth targets with clear stewardship metrics.</li>
+              </ul>
+            </div>
+          </div>
+        </Container>
+      </section>
+
+      <section className="bg-white py-16 sm:py-20">
+        <Container>
+          <SectionHeading
+            eyebrow="Values"
+            title="Principled stewardship at every level"
+            description="Values guide our governance, shape our partnerships, and reinforce trust."
+          />
+          <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+            {[
+              "Integrity",
+              "Accountability",
+              "Stewardship",
+              "Excellence",
+              "Responsible Growth",
+            ].map((value) => (
+              <div
+                key={value}
+                className="rounded-2xl border border-border bg-section px-6 py-8 text-center text-sm font-semibold text-foreground"
+              >
+                {value}
+              </div>
+            ))}
+          </div>
+        </Container>
+      </section>
+    </>
   );
 }
