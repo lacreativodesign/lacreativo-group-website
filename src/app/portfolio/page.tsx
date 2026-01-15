@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import Link from "next/link";
 import BrandCard from "@/components/BrandCard";
 import Container from "@/components/Container";
 import LogoWall from "@/components/LogoWall";
@@ -9,17 +9,20 @@ import {
   infrastructureBrands,
   publicBrands,
 } from "@/lib/brands";
+import { buildPageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Portfolio",
+export const metadata = buildPageMetadata({
+  title: "LA CREATIVO GROUP, LLC — Portfolio",
   description:
-    "Explore the operating companies, infrastructure, and digital growth assets within LA CREATIVO GROUP, LLC.",
-};
+    "Explore LA CREATIVO GROUP, LLC's portfolio of operating companies, infrastructure capabilities, and digital growth assets aligned to enterprise governance.",
+  path: "/portfolio",
+});
 
 export default function PortfolioPage() {
   return (
     <div className="bg-white py-16 sm:py-20">
       <Container>
+        <h1 className="sr-only">Portfolio</h1>
         <MotionFadeUp>
           <SectionHeading
             eyebrow="Portfolio"
@@ -27,6 +30,16 @@ export default function PortfolioPage() {
             description="Our portfolio includes public-facing brands, infrastructure capabilities, and digital growth assets."
           />
         </MotionFadeUp>
+        <p className="mt-4 text-sm text-foreground-muted">
+          Return to the{" "}
+          <Link
+            href="/"
+            className="font-semibold text-foreground transition-colors hover:text-accent"
+          >
+            LA CREATIVO GROUP, LLC overview
+          </Link>
+          .
+        </p>
       </Container>
 
       <section className="mt-12 bg-section py-12">

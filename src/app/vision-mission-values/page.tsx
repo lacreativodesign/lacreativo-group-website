@@ -1,18 +1,20 @@
-import type { Metadata } from "next";
 import Container from "@/components/Container";
 import { MotionFadeUp, MotionItem, MotionStagger } from "@/components/Motion";
 import SectionHeading from "@/components/SectionHeading";
+import { buildPageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Vision, Mission & Values",
+export const metadata = buildPageMetadata({
+  title: "LA CREATIVO GROUP, LLC — Vision, Mission & Values",
   description:
-    "Read the vision, mission, and values that guide LA CREATIVO GROUP, LLC.",
-};
+    "Review the vision, mission, and values guiding LA CREATIVO GROUP, LLC with principles focused on stewardship, accountability, and long-term value.",
+  path: "/vision-mission-values",
+});
 
 export default function VisionMissionValuesPage() {
   return (
     <section className="bg-white py-16 sm:py-20">
       <Container>
+        <h1 className="sr-only">Vision, Mission, and Values</h1>
         <MotionFadeUp>
           <SectionHeading
             eyebrow="Vision & Mission"

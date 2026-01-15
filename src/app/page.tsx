@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import { Landmark, LineChart, Scale } from "lucide-react";
 import BrandCard from "@/components/BrandCard";
@@ -9,20 +8,26 @@ import { MotionFadeIn, MotionFadeUp, MotionItem, MotionStagger } from "@/compone
 import ParallaxImage from "@/components/ParallaxImage";
 import SectionHeading from "@/components/SectionHeading";
 import { publicBrands } from "@/lib/brands";
+import { buildPageMetadata, siteConfig } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Home",
+export const metadata = buildPageMetadata({
+  title: "LA CREATIVO GROUP, LLC — Holding Group Overview",
   description:
-    "LA CREATIVO GROUP, LLC is a holding group anchored in governance, operational discipline, and long-term value creation.",
-};
+    "LA CREATIVO GROUP, LLC is a governance-led holding group providing disciplined oversight, shared standards, and long-term portfolio stewardship.",
+  path: "/",
+});
 
 const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
-  name: "LA CREATIVO GROUP, LLC",
-  url: "https://www.lacreativogroup.com",
+  name: siteConfig.name,
+  legalName: siteConfig.legalName,
+  url: siteConfig.url,
+  logo: new URL("/brand/group-logo.png", siteConfig.url).toString(),
   description:
     "A holding group built on trust, discipline, and purpose with a focus on long-term stewardship.",
+  // TODO: Add official social profiles when available.
+  sameAs: [],
   contactPoint: {
     "@type": "ContactPoint",
     contactType: "administrative",
@@ -66,6 +71,12 @@ export default function Home() {
                     className="link-underline text-sm font-semibold text-foreground transition-colors hover:text-accent"
                   >
                     Who We Are
+                  </Link>
+                  <Link
+                    href="/vision-mission-values"
+                    className="link-underline text-sm font-semibold text-foreground transition-colors hover:text-accent"
+                  >
+                    Vision &amp; Values
                   </Link>
                 </div>
               </MotionItem>

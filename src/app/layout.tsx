@@ -3,6 +3,7 @@ import { Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
+import { siteConfig } from "@/lib/seo";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -17,18 +18,16 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://www.lacreativogroup.com"),
+  metadataBase: new URL(siteConfig.url),
   title: {
     default: "LA CREATIVO GROUP, LLC",
     template: "%s | LA CREATIVO GROUP, LLC",
   },
-  description:
-    "A holding group focused on disciplined governance, shared operating standards, and long-term value creation across a diverse portfolio.",
+  description: siteConfig.description,
   openGraph: {
     title: "LA CREATIVO GROUP, LLC",
-    description:
-      "A holding group focused on disciplined governance, shared operating standards, and long-term value creation across a diverse portfolio.",
-    url: "https://www.lacreativogroup.com",
+    description: siteConfig.description,
+    url: siteConfig.url,
     siteName: "LA CREATIVO GROUP, LLC",
     locale: "en_US",
     type: "website",

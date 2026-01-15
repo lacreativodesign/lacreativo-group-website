@@ -1,20 +1,22 @@
-import type { Metadata } from "next";
 import Container from "@/components/Container";
 import ImageWithFallback from "@/components/ImageWithFallback";
 import { MotionItem, MotionStagger } from "@/components/Motion";
 import ParallaxImage from "@/components/ParallaxImage";
 import SectionHeading from "@/components/SectionHeading";
+import { buildPageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Who We Are",
+export const metadata = buildPageMetadata({
+  title: "LA CREATIVO GROUP, LLC — Who We Are",
   description:
-    "Learn about LA CREATIVO GROUP, LLC and the governance-first mandate that guides our holding group.",
-};
+    "Learn how LA CREATIVO GROUP, LLC structures governance, accountability, and long-term stewardship to strengthen a focused portfolio of operating brands.",
+  path: "/who-we-are",
+});
 
 export default function WhoWeArePage() {
   return (
     <section className="bg-white py-16 sm:py-20">
       <Container>
+        <h1 className="sr-only">Who We Are</h1>
         <div className="grid gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
           <MotionStagger className="space-y-6">
             <MotionItem>
