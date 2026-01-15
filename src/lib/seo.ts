@@ -6,7 +6,7 @@ export const siteConfig = {
   legalName: "LA CREATIVO GROUP, LLC",
   url: getSiteUrl(),
   description:
-    "A governance-led holding group providing disciplined oversight, shared standards and long-term value creation across its portfolio.",
+    "A governance-led holding group providing disciplined oversight, shared standards, and long-term value creation across its portfolio.",
 };
 
 export const buildPageMetadata = ({
