@@ -1,18 +1,20 @@
-import type { Metadata } from "next";
 import Container from "@/components/Container";
 import { MotionFadeUp, MotionItem, MotionStagger } from "@/components/Motion";
 import SectionHeading from "@/components/SectionHeading";
+import { buildPageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Contact",
+export const metadata = buildPageMetadata({
+  title: "LA CREATIVO GROUP, LLC — Contact",
   description:
-    "Administrative contact information for LA CREATIVO GROUP, LLC.",
-};
+    "Administrative contact for LA CREATIVO GROUP, LLC regarding governance, compliance, or portfolio operations with a measured response cadence.",
+  path: "/contact",
+});
 
 export default function ContactPage() {
   return (
     <section className="bg-white py-16 sm:py-20">
       <Container>
+        <h1 className="sr-only">Contact</h1>
         <div className="grid gap-12 lg:grid-cols-[1.1fr_0.9fr]">
           <MotionStagger className="space-y-6">
             <MotionItem>

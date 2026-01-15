@@ -1,7 +1,8 @@
 import type { MetadataRoute } from "next";
+import { siteConfig } from "@/lib/seo";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://www.lacreativogroup.com";
+  const baseUrl = siteConfig.url;
 
   return [
     { url: baseUrl, lastModified: new Date() },
