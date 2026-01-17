@@ -29,13 +29,13 @@ export default function Home() {
       />
       <section className="section">
         <div className="container">
-          <div className="grid gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
-            <div className="space-y-6">
+          <div className="grid gap-10 lg:grid-cols-12 lg:items-center">
+            <div className="space-y-6 lg:col-span-7">
               <p className="eyebrow">Holding Company</p>
               <h1 className="h1">
                 A Holding Group Built on Trust, Discipline, and Purpose
               </h1>
-              <p className="prose">
+              <p className="lead">
                 LA CREATIVO GROUP, LLC provides governance, operational rigor, and
                 long-term stewardship for a focused portfolio of businesses. We
                 prioritize continuity, measured growth, and accountable reporting
@@ -48,23 +48,32 @@ export default function Home() {
                 Who We Are
               </Link>
             </div>
-            <div className="bg-[color:var(--surface)] p-3">
-              <Image
-                src="/images/ai/hero.jpg"
-                alt="Boardroom overview"
-                width={520}
-                height={420}
-                className="h-auto w-full object-cover"
-                priority
-              />
+            <div className="lg:col-span-5">
+              <figure className="panel figure">
+                <Image
+                  src="/images/ai/hero.jpg"
+                  alt="Boardroom overview"
+                  width={480}
+                  height={600}
+                  className="h-auto w-full object-cover"
+                  priority
+                />
+                <figcaption className="caption">
+                  Boardroom overview
+                </figcaption>
+              </figure>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="section bg-[color:var(--surface)]">
-        <div className="container grid gap-10 lg:grid-cols-[1fr_1.1fr]">
-          <div className="space-y-5">
+      <div className="container">
+        <div className="rule" />
+      </div>
+
+      <section className="section">
+        <div className="container chapter grid gap-10 lg:grid-cols-12">
+          <div className="space-y-5 lg:col-span-6">
             <p className="eyebrow">What We Are</p>
             <h2 className="h2">Governance-led stewardship for enduring assets</h2>
             <p className="prose">
@@ -80,35 +89,42 @@ export default function Home() {
               governance and shared resources.
             </p>
           </div>
-          <div className="prose">
-            <p>
-              We take a long-view approach to value creation, with measured
-              expansion and clear stewardship metrics. Our leaders operate with
-              continuity, ensuring each business has the clarity and structure
-              needed to endure.
-            </p>
-            <p>
-              Administrative inquiries are handled with discretion and a measured
-              response cadence.
-            </p>
+          <div className="lg:col-span-6">
+            <div className="panel space-y-4 lg:mt-6">
+              <p className="prose">
+                We take a long-view approach to value creation, with measured
+                expansion and clear stewardship metrics. Our leaders operate with
+                continuity, ensuring each business has the clarity and structure
+                needed to endure.
+              </p>
+              <p className="prose">
+                Administrative inquiries are handled with discretion and a measured
+                response cadence.
+              </p>
+            </div>
           </div>
         </div>
       </section>
 
       <section className="section">
-        <div className="container">
-          <Image
-            src="/images/ai/governance.jpg"
-            alt="Governance review"
-            width={1120}
-            height={520}
-            className="h-auto w-full object-cover"
-          />
+        <div className="bleed px-4">
+          <figure className="figure mx-auto max-w-[1280px]">
+            <Image
+              src="/images/ai/governance.jpg"
+              alt="Governance review"
+              width={1280}
+              height={640}
+              className="h-auto w-full object-cover"
+            />
+            <figcaption className="caption">
+              Governance review session
+            </figcaption>
+          </figure>
         </div>
       </section>
 
       <section className="section">
-        <div className="container space-y-10">
+        <div className="container chapter space-y-10">
           <div className="space-y-4">
             <p className="eyebrow">How We Operate</p>
             <h2 className="h2">Disciplined oversight across three pillars</h2>
@@ -117,7 +133,7 @@ export default function Home() {
               focused on governance, operational integrity, and long-term value.
             </p>
           </div>
-          <div className="grid gap-8 lg:grid-cols-3">
+          <div className="grid gap-6 lg:grid-cols-3">
             {[
               {
                 title: "Governance",
@@ -137,10 +153,10 @@ export default function Home() {
             ].map((pillar) => (
               <div
                 key={pillar.title}
-                className="border-t border-[color:var(--border)] pt-6"
+                className="panel space-y-3 border-t-2 border-[color:var(--border)]"
               >
                 <h3 className="h3">{pillar.title}</h3>
-                <p className="prose mt-3">{pillar.copy}</p>
+                <p className="prose">{pillar.copy}</p>
               </div>
             ))}
           </div>
@@ -148,7 +164,7 @@ export default function Home() {
       </section>
 
       <section className="section bg-[color:var(--surface)]">
-        <div className="container space-y-8">
+        <div className="container chapter space-y-8">
           <div className="space-y-4">
             <p className="eyebrow">Portfolio at a Glance</p>
             <h2 className="h2">Operating brands under disciplined oversight</h2>
@@ -157,36 +173,40 @@ export default function Home() {
               flagship, platform, and funnel-focused brands.
             </p>
           </div>
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
-            {brands.map((brand) => (
-              <div
-                key={brand.name}
-                className="flex h-20 items-center justify-center border border-dashed border-[color:var(--border)] bg-white"
-              >
-                <Image
-                  src={brand.logoPath}
-                  alt={`${brand.name} logo`}
-                  width={140}
-                  height={70}
-                  className="h-10 w-auto object-contain"
-                />
-              </div>
-            ))}
+          <div className="panel">
+            <div className="grid grid-cols-2 gap-4 lg:grid-cols-5">
+              {brands.map((brand) => (
+                <div
+                  key={brand.name}
+                  className="flex h-20 items-center justify-center rounded-lg border border-[color:var(--border)] bg-white px-4"
+                >
+                  <Image
+                    src={brand.logoPath}
+                    alt={`${brand.name} logo`}
+                    width={140}
+                    height={70}
+                    className="h-10 w-auto object-contain"
+                  />
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
       <section className="section">
-        <div className="container space-y-4">
-          <p className="eyebrow">Administrative Notice</p>
-          <h2 className="h2">Administrative inquiries only</h2>
-          <p className="prose">
-            For administrative matters, contact
-            <span className="font-semibold text-[color:var(--ink)]">
-              {" "}info@lacreativogroup.com
-            </span>
-            . Sales outreach is not monitored.
-          </p>
+        <div className="container chapter">
+          <div className="panel space-y-4">
+            <p className="eyebrow">Administrative Notice</p>
+            <h2 className="h2">Administrative inquiries only</h2>
+            <p className="prose">
+              For administrative matters, contact
+              <span className="font-semibold text-[color:var(--ink)]">
+                {" "}info@lacreativogroup.com
+              </span>
+              . Sales outreach is not monitored.
+            </p>
+          </div>
         </div>
       </section>
     </>

@@ -19,8 +19,8 @@ export default function Navbar() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-[color:var(--border)] bg-white/95 backdrop-blur">
-      <div className="container flex items-center justify-between py-4">
-        <Link href="/" className="flex items-center gap-3">
+      <div className="container flex h-[72px] items-center justify-between">
+        <Link href="/" className="flex items-center gap-4">
           <Image
             src="/brand/group-logo.png"
             alt="LA CREATIVO GROUP, LLC"
@@ -32,7 +32,7 @@ export default function Navbar() {
             LA CREATIVO GROUP
           </span>
         </Link>
-        <nav className="hidden items-center gap-8 text-sm font-semibold text-[color:var(--ink)] md:flex">
+        <nav className="hidden items-center gap-7 text-sm font-semibold text-[color:var(--ink)] md:flex">
           {navLinks.map((link) => {
             const isActive = pathname === link.href;
             return (
@@ -41,7 +41,7 @@ export default function Navbar() {
                 href={link.href}
                 data-active={isActive}
                 aria-current={isActive ? "page" : undefined}
-                className="link-underline inline-flex items-center gap-2 transition-colors duration-200 ease-out hover:text-[color:var(--accent)]"
+                className="link-underline inline-flex items-center gap-2 pb-1 transition-colors duration-200 ease-out hover:text-[color:var(--accent)]"
               >
                 <span>{link.label}</span>
                 {isActive ? (
@@ -65,7 +65,10 @@ export default function Navbar() {
         </button>
       </div>
       {isOpen ? (
-        <div id="mobile-menu" className="border-t border-[color:var(--border)] bg-white">
+        <div
+          id="mobile-menu"
+          className="border-t border-[color:var(--border)] bg-white"
+        >
           <nav className="container flex flex-col gap-4 py-4 text-sm font-semibold text-[color:var(--ink)]">
             {navLinks.map((link) => {
               const isActive = pathname === link.href;

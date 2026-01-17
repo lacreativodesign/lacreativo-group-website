@@ -93,12 +93,12 @@ a.link-underline:hover::after,
   }
 
   .section {
-    padding-block: 72px;
+    padding-block: 64px;
   }
 
   @media (max-width: 768px) {
     .section {
-      padding-block: 56px;
+      padding-block: 40px;
     }
   }
 
@@ -112,7 +112,7 @@ a.link-underline:hover::after,
 
   .h1 {
     font-size: clamp(2.5rem, 4vw, 3.5rem);
-    line-height: 1.1;
+    line-height: 1.05;
     font-weight: 600;
   }
 
@@ -132,5 +132,50 @@ a.link-underline:hover::after,
     font-size: 1rem;
     line-height: 1.7;
     color: var(--muted);
+    max-width: 68ch;
+  }
+
+  .lead {
+    font-size: 1.125rem;
+    line-height: 1.7;
+    color: var(--muted);
+    max-width: 70ch;
+  }
+
+  .chapter {
+    border-top: 1px solid var(--border);
+    padding-top: 32px;
+  }
+
+  .panel {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px;
+  }
+
+  .rule {
+    height: 1px;
+    background: var(--border);
+    margin-block: 40px;
+  }
+
+  .figure {
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+    background: #fff;
+    box-shadow: 0 12px 24px -20px rgba(0, 0, 0, 0.2);
+  }
+
+  .caption {
+    margin-top: 12px;
+    font-size: 0.875rem;
+    color: var(--muted);
+  }
+
+  .bleed {
+    margin-inline: calc(50% - 50vw);
+    width: 100vw;
   }
 }

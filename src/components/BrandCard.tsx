@@ -7,7 +7,7 @@ interface BrandCardProps {
 
 export default function BrandCard({ brand }: BrandCardProps) {
   return (
-    <div className="flex h-full flex-col justify-between border border-[color:var(--border)] bg-white p-6 transition-transform duration-200 ease-out hover:-translate-y-0.5">
+    <div className="panel flex h-full flex-col justify-between gap-4 bg-white">
       <div className="space-y-4">
         <div className="flex h-12 items-center">
           <Image

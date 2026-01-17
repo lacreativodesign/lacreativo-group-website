@@ -24,15 +24,16 @@ const portfolioLinks = [
 
 export default function Footer() {
   return (
-    <footer className="border-t border-[color:var(--border)] bg-white">
+    <footer className="bg-white">
       <div className="container section">
+        <div className="rule" />
         <div className="grid gap-10 md:grid-cols-[1.2fr_0.8fr_1fr]">
           <div className="space-y-3">
-            <p className="text-base font-semibold text-[color:var(--ink)]">
+            <p className="text-sm font-semibold text-[color:var(--ink)]">
               {SITE_NAME}
             </p>
             <p className="text-sm text-[color:var(--muted)]">{SITE_TAGLINE}</p>
-            <p className="text-sm text-[color:var(--muted)]">
+            <p className="text-xs text-[color:var(--muted)]">
               Administrative inquiries only.
             </p>
             <p className="text-sm text-[color:var(--muted)]">

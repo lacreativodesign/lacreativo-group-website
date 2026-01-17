@@ -7,11 +7,11 @@ interface LogoWallProps {
 
 export default function LogoWall({ brands }: LogoWallProps) {
   return (
-    <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+    <div className="grid grid-cols-2 gap-4 lg:grid-cols-5">
       {brands.map((brand) => (
         <div
           key={brand.name}
-          className="flex h-20 items-center justify-center border border-dashed border-[color:var(--border)] bg-[color:var(--surface)] px-4"
+          className="flex h-20 items-center justify-center rounded-lg border border-[color:var(--border)] bg-white px-4"
         >
           <Image
             src={brand.logoPath}
