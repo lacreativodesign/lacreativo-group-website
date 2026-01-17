@@ -1,8 +1,8 @@
 import type { MetadataRoute } from "next";
-import { siteConfig } from "@/lib/seo";
+import { getSiteUrl } from "@/lib/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = siteConfig.url;
+  const baseUrl = getSiteUrl();
 
   return [
     { url: baseUrl, lastModified: new Date() },

@@ -1,58 +1,76 @@
 import Link from "next/link";
-import Container from "@/components/Container";
+import { SITE_NAME, SITE_TAGLINE } from "@/lib/site";
+
+const quickLinks = [
+  { href: "/", label: "Overview" },
+  { href: "/who-we-are", label: "Who We Are" },
+  { href: "/portfolio", label: "Portfolio" },
+  { href: "/vision-mission-values", label: "Vision & Values" },
+  { href: "/contact", label: "Contact" },
+];
+
+const portfolioLinks = [
+  "LA CREATIVO",
+  "Bizosto",
+  "Hipster Circles",
+  "Brightwood Press",
+  "Appostrophy",
+  "WebHostingSync",
+  "CustomLogoPros",
+  "WebMakerUSA",
+  "WebsiteDesignDogs",
+  "WebsiteNationLLC",
+];
 
 export default function Footer() {
   return (
-    <footer className="border-t border-border bg-white py-10">
-      <Container>
-        <div className="flex flex-col gap-6 text-sm text-foreground-muted md:flex-row md:items-center md:justify-between">
-          <div className="space-y-2">
-            <p className="text-base font-semibold text-foreground">
-              LA CREATIVO GROUP, LLC
+    <footer className="border-t border-[color:var(--border)] bg-white">
+      <div className="container section">
+        <div className="grid gap-10 md:grid-cols-[1.2fr_0.8fr_1fr]">
+          <div className="space-y-3">
+            <p className="text-base font-semibold text-[color:var(--ink)]">
+              {SITE_NAME}
             </p>
-            <p>
-              Governance-led stewardship supporting responsible, long-term value
-              creation across our portfolio.
+            <p className="text-sm text-[color:var(--muted)]">{SITE_TAGLINE}</p>
+            <p className="text-sm text-[color:var(--muted)]">
+              Administrative inquiries only.
+            </p>
+            <p className="text-sm text-[color:var(--muted)]">
+              info@lacreativogroup.com
             </p>
           </div>
-          <nav aria-label="Footer" className="flex flex-col gap-2 text-sm">
-            <Link
-              href="/"
-              className="transition-colors hover:text-accent"
-            >
-              Overview
-            </Link>
-            <Link
-              href="/who-we-are"
-              className="transition-colors hover:text-accent"
-            >
-              Who We Are
-            </Link>
-            <Link
-              href="/portfolio"
-              className="transition-colors hover:text-accent"
-            >
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[color:var(--muted)]">
+              Quick Links
+            </p>
+            <ul className="mt-4 space-y-2 text-sm text-[color:var(--muted)]">
+              {quickLinks.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="link-underline transition-colors hover:text-[color:var(--ink)]"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[color:var(--muted)]">
               Portfolio
-            </Link>
-            <Link
-              href="/vision-mission-values"
-              className="transition-colors hover:text-accent"
-            >
-              Vision &amp; Values
-            </Link>
-            <Link
-              href="/contact"
-              className="transition-colors hover:text-accent"
-            >
-              Contact
-            </Link>
-          </nav>
-          <div className="text-sm">
-            <p>Administrative inquiries only.</p>
-            <p>info@lacreativogroup.com</p>
+            </p>
+            <ul className="mt-4 grid gap-2 text-sm text-[color:var(--muted)] sm:grid-cols-2">
+              {portfolioLinks.map((label) => (
+                <li key={label}>{label}</li>
+              ))}
+            </ul>
           </div>
         </div>
-      </Container>
+        <div className="mt-10 border-t border-[color:var(--border)] pt-6 text-xs text-[color:var(--muted)]">
+          © {new Date().getFullYear()} {SITE_NAME}. All rights reserved.
+        </div>
+      </div>
     </footer>
   );
 }
