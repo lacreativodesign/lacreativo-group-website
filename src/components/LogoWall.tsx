@@ -1,7 +1,4 @@
-"use client";
-
 import Image from "next/image";
-import { useState } from "react";
 import type { Brand } from "@/lib/brands";
 
 interface LogoWallProps {
@@ -9,40 +6,22 @@ interface LogoWallProps {
 }
 
 export default function LogoWall({ brands }: LogoWallProps) {
-  const [failedLogos, setFailedLogos] = useState<Record<string, boolean>>({});
-
   return (
-    <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-      {brands.map((brand) => {
-        const hasError = failedLogos[brand.name];
-
-        return (
-          <div
-            key={brand.name}
-            className="flex h-24 items-center justify-center rounded-xl border border-dashed border-border bg-white px-4 transition-opacity duration-200 ease-out hover:opacity-70 motion-reduce:transition-none"
-          >
-            {brand.logoPath && !hasError ? (
-              <Image
-                src={brand.logoPath}
-                alt={`${brand.name} logo`}
-                width={140}
-                height={64}
-                className="h-12 w-auto object-contain"
-                onError={() =>
-                  setFailedLogos((prev) => ({
-                    ...prev,
-                    [brand.name]: true,
-                  }))
-                }
-              />
-            ) : (
-              <span className="text-xs font-semibold uppercase tracking-[0.2em] text-foreground-muted">
-                {brand.name}
-              </span>
-            )}
-          </div>
-        );
-      })}
+    <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+      {brands.map((brand) => (
+        <div
+          key={brand.name}
+          className="flex h-20 items-center justify-center border border-dashed border-[color:var(--border)] bg-[color:var(--surface)] px-4"
+        >
+          <Image
+            src={brand.logoPath}
+            alt={`${brand.name} logo`}
+            width={140}
+            height={70}
+            className="h-10 w-auto object-contain"
+          />
+        </div>
+      ))}
     </div>
   );
 }

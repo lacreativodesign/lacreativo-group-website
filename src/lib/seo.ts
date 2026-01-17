@@ -1,16 +1,11 @@
 import type { Metadata } from "next";
-
-const defaultSiteUrl = "https://www.lacreativogroup.com";
+import { SITE_DESCRIPTION, SITE_NAME, getSiteUrl } from "@/lib/site";
 
 export const siteConfig = {
-  name: "LA CREATIVO GROUP, LLC",
-  legalName: "LA CREATIVO GROUP, LLC",
-  url:
-    process.env.SITE_DOMAIN ??
-    process.env.NEXT_PUBLIC_SITE_DOMAIN ??
-    defaultSiteUrl,
-  description:
-    "A governance-led holding group providing disciplined oversight, shared standards and long-term value creation across its portfolio.",
+  name: SITE_NAME,
+  legalName: SITE_NAME,
+  url: getSiteUrl(),
+  description: SITE_DESCRIPTION,
 };
 
 export const buildPageMetadata = ({
@@ -22,7 +17,8 @@ export const buildPageMetadata = ({
   description: string;
   path: string;
 }): Metadata => {
-  const pageUrl = new URL(path, siteConfig.url).toString();
+  const baseUrl = getSiteUrl();
+  const pageUrl = new URL(path, baseUrl).toString();
 
   return {
     title: { absolute: title },
@@ -34,7 +30,7 @@ export const buildPageMetadata = ({
       title,
       description,
       type: "website",
-      siteName: siteConfig.name,
+      siteName: SITE_NAME,
       url: pageUrl,
     },
   };

@@ -2,84 +2,77 @@ export interface Brand {
   name: string;
   category: string;
   description: string;
-  logoPath?: string;
+  logoPath: string;
 }
 
-export const publicBrands: Brand[] = [
+export const brands: Brand[] = [
   {
     name: "LA CREATIVO",
-    category: "Public Brand",
-    description:
-      "Flagship digital agency delivering disciplined, full-service brand and digital engagement for enterprise-level partners.",
+    category: "Flagship brands",
+    description: "Flagship agency delivering disciplined brand and digital execution.",
     logoPath: "/logos/la-creativo.png",
   },
   {
     name: "Bizosto",
-    category: "Public Brand",
-    description:
-      "ERP and business operating system focused on operational clarity, data integrity, and scalable management.",
+    category: "Flagship brands",
+    description: "ERP and business OS focused on operational clarity and control.",
     logoPath: "/logos/bizosto.png",
   },
   {
     name: "Hipster Circles",
-    category: "Public Brand",
-    description:
-      "Ecommerce and apparel platform guided by disciplined merchandising and long-term brand equity.",
+    category: "Flagship brands",
+    description: "Ecommerce platform with steady merchandising and brand stewardship.",
     logoPath: "/logos/hipster-circles.png",
   },
   {
     name: "Brightwood Press",
-    category: "Public Brand",
-    description:
-      "Publishing arm advancing thoughtful, enduring content with a governance-first approach to quality.",
+    category: "Flagship brands",
+    description: "Publishing imprint advancing enduring content and editorial rigor.",
     logoPath: "/logos/brightwood-press.png",
   },
   {
     name: "Appostrophy",
-    category: "Public Brand",
-    description:
-      "Mobile and product development studio supporting mission-critical digital platforms.",
+    category: "Flagship brands",
+    description: "Product and development studio supporting mission-critical platforms.",
     logoPath: "/logos/appostrophy.png",
   },
-];
-
-export const infrastructureBrands: Brand[] = [
   {
     name: "WebHostingSync",
-    category: "Infrastructure",
-    description:
-      "Infrastructure and systems backbone providing stable hosting, security, and operational continuity.",
+    category: "Platform & infrastructure",
+    description: "Infrastructure backbone for hosting, security, and continuity.",
     logoPath: "/logos/webhostingsync.png",
   },
-];
-
-export const digitalGrowthBrands: Brand[] = [
   {
     name: "CustomLogoPros",
-    category: "Digital Growth Asset",
-    description:
-      "Brand identity platform supporting disciplined design execution across portfolio businesses.",
+    category: "Funnel/SEO brands",
+    description: "Brand identity platform supporting disciplined funnel execution.",
     logoPath: "/logos/customlogopros.png",
   },
   {
     name: "WebMakerUSA",
-    category: "Digital Growth Asset",
-    description:
-      "Digital build partner focused on high-quality, scalable web execution.",
+    category: "Funnel/SEO brands",
+    description: "Website production partner focused on scalable delivery.",
     logoPath: "/logos/webmakerusa.png",
   },
   {
     name: "WebsiteDesignDogs",
-    category: "Digital Growth Asset",
-    description:
-      "Creative production capability supporting portfolio design needs with consistency.",
+    category: "Funnel/SEO brands",
+    description: "Creative production capability for portfolio web initiatives.",
     logoPath: "/logos/websitedesigndogs.png",
   },
   {
     name: "WebsiteNationLLC",
-    category: "Digital Growth Asset",
-    description:
-      "Platform asset providing strategic digital services and operational coverage.",
+    category: "Funnel/SEO brands",
+    description: "Digital services asset providing operational coverage.",
     logoPath: "/logos/websitenationllc.png",
   },
 ];
+
+export const brandCategories = {
+  flagship: "Flagship brands",
+  platform: "Platform & infrastructure",
+  funnel: "Funnel/SEO brands",
+} as const;
+
+export const getBrandsByCategory = (category: string) =>
+  brands.filter((brand) => brand.category === category);

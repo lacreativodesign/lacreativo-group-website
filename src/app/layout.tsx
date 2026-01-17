@@ -1,36 +1,29 @@
 import type { Metadata } from "next";
-import { Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
-import Footer from "@/components/Footer";
-import Navbar from "@/components/Navbar";
-import { siteConfig } from "@/lib/seo";
+import Shell from "@/components/Shell";
+import { SITE_DESCRIPTION, SITE_NAME, getSiteUrl } from "@/lib/site";
 
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter",
-  display: "swap",
-});
-
-const playfair = Playfair_Display({
-  subsets: ["latin"],
-  variable: "--font-playfair",
-  display: "swap",
-});
+const siteUrl = getSiteUrl();
 
 export const metadata: Metadata = {
-  metadataBase: new URL(siteConfig.url),
+  metadataBase: new URL(siteUrl),
   title: {
-    default: "LA CREATIVO GROUP, LLC",
-    template: "%s | LA CREATIVO GROUP, LLC",
+    default: SITE_NAME,
+    template: `${SITE_NAME} — %s`,
   },
-  description: siteConfig.description,
+  description: SITE_DESCRIPTION,
   openGraph: {
-    title: "LA CREATIVO GROUP, LLC",
-    description: siteConfig.description,
-    url: siteConfig.url,
-    siteName: "LA CREATIVO GROUP, LLC",
+    title: SITE_NAME,
+    description: SITE_DESCRIPTION,
+    url: siteUrl,
+    siteName: SITE_NAME,
     locale: "en_US",
     type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: SITE_NAME,
+    description: SITE_DESCRIPTION,
   },
   robots: {
     index: true,
@@ -45,12 +38,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.variable} ${playfair.variable} antialiased`}>
-        <div className="flex min-h-screen flex-col bg-background text-foreground">
-          <Navbar />
-          <main className="flex-1">{children}</main>
-          <Footer />
-        </div>
+      <body className="antialiased">
+        <Shell>{children}</Shell>
       </body>
     </html>
   );
