@@ -18,27 +18,36 @@ export default function PortfolioPage() {
 
   return (
     <div className="section">
-      <div className="container space-y-12">
+      <div className="container space-y-10">
         <div className="space-y-4">
           <p className="eyebrow">Portfolio</p>
           <h1 className="h1">Portfolio</h1>
-          <p className="prose">
+          <p className="lead">
             The portfolio reflects a set of operating companies aligned to shared
             governance standards, measured performance expectations, and
             long-term stewardship.
           </p>
         </div>
 
-        <Image
-          src="/images/ai/portfolio.jpg"
-          alt="Portfolio review"
-          width={1120}
-          height={480}
-          className="h-auto w-full object-cover"
-        />
+        <div className="rule" />
 
-        <section className="space-y-6">
-          <div className="space-y-3">
+        <div className="chapter space-y-6">
+          <figure className="figure">
+            <Image
+              src="/images/ai/portfolio.jpg"
+              alt="Portfolio review"
+              width={1120}
+              height={520}
+              className="h-auto w-full object-cover"
+            />
+            <figcaption className="caption">
+              Portfolio review cadence across operating companies.
+            </figcaption>
+          </figure>
+        </div>
+
+        <section className="chapter space-y-6">
+          <div className="panel space-y-3 bg-white">
             <p className="eyebrow">Flagship brands</p>
             <h2 className="h2">Market-facing operating companies</h2>
             <p className="prose">
@@ -51,11 +60,13 @@ export default function PortfolioPage() {
               <BrandCard key={brand.name} brand={brand} />
             ))}
           </div>
-          <LogoWall brands={flagship} />
+          <div className="panel">
+            <LogoWall brands={flagship} />
+          </div>
         </section>
 
-        <section className="space-y-6">
-          <div className="space-y-3">
+        <section className="chapter space-y-6">
+          <div className="panel space-y-3 bg-white">
             <p className="eyebrow">Platform &amp; Infrastructure</p>
             <h2 className="h2">Shared systems and operational backbone</h2>
             <p className="prose">
@@ -68,11 +79,13 @@ export default function PortfolioPage() {
               <BrandCard key={brand.name} brand={brand} />
             ))}
           </div>
-          <LogoWall brands={platform} />
+          <div className="panel">
+            <LogoWall brands={platform} />
+          </div>
         </section>
 
-        <section className="space-y-6">
-          <div className="space-y-3">
+        <section className="chapter space-y-6">
+          <div className="panel space-y-3 bg-white">
             <p className="eyebrow">Funnel/SEO brands</p>
             <h2 className="h2">Specialized digital acquisition assets</h2>
             <p className="prose">
@@ -85,7 +98,9 @@ export default function PortfolioPage() {
               <BrandCard key={brand.name} brand={brand} />
             ))}
           </div>
-          <LogoWall brands={funnel} />
+          <div className="panel">
+            <LogoWall brands={funnel} />
+          </div>
         </section>
       </div>
     </div>

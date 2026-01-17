@@ -38,18 +38,20 @@ const values = [
 export default function VisionMissionValuesPage() {
   return (
     <div className="section">
-      <div className="container space-y-12">
+      <div className="container space-y-10">
         <div className="space-y-4">
           <p className="eyebrow">Vision, Mission &amp; Values</p>
           <h1 className="h1">Vision, Mission &amp; Values</h1>
-          <p className="prose">
+          <p className="lead">
             We articulate clear expectations for how we govern, operate, and
             support the companies entrusted to our stewardship.
           </p>
         </div>
 
-        <div className="grid gap-10 lg:grid-cols-2">
-          <div className="space-y-4 border border-[color:var(--border)] bg-[color:var(--surface)] p-8">
+        <div className="rule" />
+
+        <div className="chapter grid gap-6 lg:grid-cols-2">
+          <div className="panel space-y-4">
             <p className="eyebrow">Vision</p>
             <h2 className="h2">
               Build enduring enterprises through disciplined oversight and
@@ -60,7 +62,7 @@ export default function VisionMissionValuesPage() {
               execution, and portfolio resilience across generations.
             </p>
           </div>
-          <div className="space-y-4 border border-[color:var(--border)] bg-[color:var(--surface)] p-8">
+          <div className="panel space-y-4">
             <p className="eyebrow">Mission</p>
             <h2 className="h2">
               Provide governance frameworks, shared standards, and long-term
@@ -73,14 +75,17 @@ export default function VisionMissionValuesPage() {
           </div>
         </div>
 
-        <div className="space-y-6">
-          <Image
-            src="/images/ai/values.jpg"
-            alt="Values review"
-            width={1120}
-            height={480}
-            className="h-auto w-full object-cover"
-          />
+        <div className="chapter space-y-6">
+          <figure className="figure">
+            <Image
+              src="/images/ai/values.jpg"
+              alt="Values review"
+              width={1120}
+              height={520}
+              className="h-auto w-full object-cover"
+            />
+            <figcaption className="caption">Values review session.</figcaption>
+          </figure>
           <div className="space-y-4">
             <p className="eyebrow">Values</p>
             <h2 className="h2">Principles that guide every decision</h2>
@@ -91,10 +96,7 @@ export default function VisionMissionValuesPage() {
           </div>
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {values.map((value) => (
-              <div
-                key={value.title}
-                className="border border-[color:var(--border)] bg-white p-6"
-              >
+              <div key={value.title} className="panel bg-white">
                 <h3 className="h3">{value.title}</h3>
                 <p className="prose mt-3">{value.copy}</p>
               </div>
