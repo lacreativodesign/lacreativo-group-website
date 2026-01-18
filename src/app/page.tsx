@@ -27,8 +27,23 @@ export default function Home() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
       />
-      <section className="section">
-        <div className="container">
+
+      {/* HERO (full-bleed background image + left fade overlay) */}
+      <section className="section relative overflow-hidden">
+        {/* Background image layer */}
+        <div className="absolute inset-0">
+          <img
+            src="/images/ai/hero.jpg"
+            alt="Executive boardroom setting"
+            className="h-full w-full object-cover object-right"
+            loading="eager"
+          />
+          {/* Fade-to-white overlay for readable text on left */}
+          <div className="absolute inset-0 bg-gradient-to-r from-white via-white/90 to-white/10" />
+        </div>
+
+        {/* Content layer */}
+        <div className="container relative">
           <div className="grid gap-10 lg:grid-cols-12 lg:items-center">
             <div className="space-y-6 lg:col-span-7">
               <p className="eyebrow">Holding Company</p>
@@ -48,21 +63,9 @@ export default function Home() {
                 Who We Are
               </Link>
             </div>
-            <div className="lg:col-span-5">
-              <figure className="relative overflow-hidden rounded-2xl border border-black/10 bg-white shadow-sm">
-  <div className="relative aspect-[16/11] w-full">
-    <img
-      src="/images/ai/hero.jpg"
-      alt="Boardroom overview"
-      className="absolute inset-0 h-full w-full object-cover"
-      loading="eager"
-    />
-  </div>
-  <figcaption className="px-5 py-3 text-xs tracking-wide text-black/60">
-    Boardroom overview
-  </figcaption>
-</figure>
-            </div>
+
+            {/* Right spacer column keeps the hero image visible on large screens */}
+            <div className="hidden lg:block lg:col-span-5" />
           </div>
         </div>
       </section>
@@ -116,9 +119,7 @@ export default function Home() {
               height={640}
               className="h-auto w-full object-cover"
             />
-            <figcaption className="caption">
-              Governance review session
-            </figcaption>
+            <figcaption className="caption">Governance review session</figcaption>
           </figure>
         </div>
       </section>
@@ -202,7 +203,8 @@ export default function Home() {
             <p className="prose">
               For administrative matters, contact
               <span className="font-semibold text-[color:var(--ink)]">
-                {" "}info@lacreativogroup.com
+                {" "}
+                info@lacreativogroup.com
               </span>
               . Sales outreach is not monitored.
             </p>
