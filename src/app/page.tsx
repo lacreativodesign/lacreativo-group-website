@@ -49,19 +49,19 @@ export default function Home() {
               </Link>
             </div>
             <div className="lg:col-span-5">
-              <figure className="panel figure">
-                <Image
-                  src="/images/ai/hero.jpg"
-                  alt="Boardroom overview"
-                  width={480}
-                  height={600}
-                  className="h-auto w-full object-cover"
-                  priority
-                />
-                <figcaption className="caption">
-                  Boardroom overview
-                </figcaption>
-              </figure>
+              <figure className="relative overflow-hidden rounded-2xl border border-black/10 bg-white shadow-sm">
+  <div className="relative aspect-[16/11] w-full">
+    <img
+      src="/images/ai/hero.jpg"
+      alt="Boardroom overview"
+      className="absolute inset-0 h-full w-full object-cover"
+      loading="eager"
+    />
+  </div>
+  <figcaption className="px-5 py-3 text-xs tracking-wide text-black/60">
+    Boardroom overview
+  </figcaption>
+</figure>
             </div>
           </div>
         </div>
