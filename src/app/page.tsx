@@ -44,13 +44,13 @@ export default function Home() {
         </div>
 
         <div className="container relative">
-          <div className="grid min-h-[560px] items-center py-16 lg:min-h-[640px] lg:py-20">
-            <div className="max-w-2xl space-y-6">
+          <div className="grid min-h-[520px] items-center py-12 lg:min-h-[600px] lg:py-16">
+            <div className="max-w-2xl space-y-4">
               <p className="eyebrow">Holding Company</p>
               <h1 className="h1">
                 A Holding Group Built on Trust, Discipline, and Purpose
               </h1>
-              <p className="lead">
+              <p className="lead max-w-xl">
                 LA CREATIVO GROUP, LLC provides governance, operational rigor, and
                 long-term stewardship for a focused portfolio of businesses. We
                 prioritize continuity, measured growth, and accountable reporting
@@ -72,7 +72,7 @@ export default function Home() {
         <div className="rule" />
       </div>
 
-      <section className="section">
+      <section className="section py-12 lg:py-16">
         <div className="container chapter grid gap-10 lg:grid-cols-12">
           <div className="space-y-5 lg:col-span-6">
             <p className="eyebrow">What We Are</p>
@@ -91,26 +91,24 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="lg:col-span-6">
-            <div className="panel space-y-4 lg:mt-6">
-              <p className="prose">
-                We take a long-view approach to value creation, with measured
-                expansion and clear stewardship metrics. Our leaders operate with
-                continuity, ensuring each business has the clarity and structure
-                needed to endure.
-              </p>
-              <p className="prose">
-                Administrative inquiries are handled with discretion and a measured
-                response cadence.
-              </p>
-            </div>
+          <div className="space-y-4 lg:col-span-6 lg:pt-4">
+            <p className="prose">
+              We take a long-view approach to value creation, with measured
+              expansion and clear stewardship metrics. Our leaders operate with
+              continuity, ensuring each business has the clarity and structure
+              needed to endure.
+            </p>
+            <p className="prose">
+              Administrative inquiries are handled with discretion and a measured
+              response cadence.
+            </p>
           </div>
         </div>
       </section>
 
-      <section className="section">
+      <section className="section py-8 lg:py-10">
         <div className="bleed px-4">
-          <figure className="figure mx-auto max-w-[1280px]">
+          <div className="mx-auto max-w-[1280px]">
             <Image
               src="/images/ai/governance.jpg"
               alt="Governance review"
@@ -118,13 +116,12 @@ export default function Home() {
               height={640}
               className="h-auto w-full object-cover"
             />
-            <figcaption className="caption">Governance review session</figcaption>
-          </figure>
+          </div>
         </div>
       </section>
 
-      <section className="section">
-        <div className="container chapter space-y-10">
+      <section className="section py-12 lg:py-16">
+        <div className="container chapter space-y-8">
           <div className="space-y-4">
             <p className="eyebrow">How We Operate</p>
             <h2 className="h2">Disciplined oversight across three pillars</h2>
@@ -134,7 +131,7 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid gap-6 lg:grid-cols-3">
+          <div className="grid gap-8 lg:grid-cols-3">
             {[
               {
                 title: "Governance",
@@ -154,7 +151,7 @@ export default function Home() {
             ].map((pillar) => (
               <div
                 key={pillar.title}
-                className="panel space-y-3 border-t-2 border-[color:var(--border)]"
+                className="space-y-3 border-t-2 border-[color:var(--border)] pt-4"
               >
                 <h3 className="h3">{pillar.title}</h3>
                 <p className="prose">{pillar.copy}</p>
@@ -164,7 +161,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="section bg-[color:var(--surface)]">
+      <section className="section bg-[color:var(--surface)] py-12 lg:py-16">
         <div className="container chapter space-y-8">
           <div className="space-y-4">
             <p className="eyebrow">Portfolio at a Glance</p>
@@ -175,30 +172,28 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="panel">
-            <div className="grid grid-cols-2 gap-4 lg:grid-cols-5">
-              {brands.map((brand) => (
-                <div
-                  key={brand.name}
-                  className="flex h-20 items-center justify-center rounded-lg border border-[color:var(--border)] bg-white px-4"
-                >
-                  <Image
-                    src={brand.logoPath}
-                    alt={`${brand.name} logo`}
-                    width={140}
-                    height={70}
-                    className="h-10 w-auto object-contain"
-                  />
-                </div>
-              ))}
-            </div>
+          <div className="grid grid-cols-2 gap-x-8 gap-y-6 border-y border-[color:var(--border)] py-6 lg:grid-cols-5 lg:py-8">
+            {brands.map((brand) => (
+              <div
+                key={brand.name}
+                className="flex min-h-[72px] items-center justify-center px-4"
+              >
+                <Image
+                  src={brand.logoPath}
+                  alt={`${brand.name} logo`}
+                  width={140}
+                  height={70}
+                  className="h-10 w-auto object-contain"
+                />
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-      <section className="section">
+      <section className="section py-12 lg:py-16">
         <div className="container chapter">
-          <div className="panel space-y-4">
+          <div className="space-y-4 border-t border-[color:var(--border)] pt-6">
             <p className="eyebrow">Administrative Notice</p>
             <h2 className="h2">Administrative inquiries only</h2>
             <p className="prose">
