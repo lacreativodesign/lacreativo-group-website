@@ -1,21 +1,17 @@
 import Image from "next/image";
 import BrandCard from "@/components/BrandCard";
 import LogoWall from "@/components/LogoWall";
-import { brandCategories, getBrandsByCategory } from "@/lib/brands";
+import { brands } from "@/lib/brands";
 import { buildPageMetadata } from "@/lib/seo";
 
 export const metadata = buildPageMetadata({
   title: "Portfolio",
   description:
-    "An overview of LA CREATIVO GROUP, LLC's operating companies and supporting platforms organized by governance category.",
+    "An overview of LA CREATIVO GROUP, LLC's operating companies under disciplined governance.",
   path: "/portfolio",
 });
 
 export default function PortfolioPage() {
-  const flagship = getBrandsByCategory(brandCategories.flagship);
-  const platform = getBrandsByCategory(brandCategories.platform);
-  const funnel = getBrandsByCategory(brandCategories.funnel);
-
   return (
     <div className="section">
       <div className="container space-y-10">
@@ -48,58 +44,21 @@ export default function PortfolioPage() {
 
         <section className="chapter space-y-6">
           <div className="panel space-y-3 bg-white">
-            <p className="eyebrow">Flagship brands</p>
-            <h2 className="h2">Market-facing operating companies</h2>
+            <p className="eyebrow">Operating brands</p>
+            <h2 className="h2">Focused companies under active governance</h2>
             <p className="prose">
-              Flagship brands represent the core operating entities stewarded by
-              the group.
+              These five operating companies represent the portfolio currently
+              stewarded by LA CREATIVO GROUP, LLC, each aligned to disciplined
+              reporting and long-term oversight.
             </p>
           </div>
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {flagship.map((brand) => (
+            {brands.map((brand) => (
               <BrandCard key={brand.name} brand={brand} />
             ))}
           </div>
           <div className="panel">
-            <LogoWall brands={flagship} />
-          </div>
-        </section>
-
-        <section className="chapter space-y-6">
-          <div className="panel space-y-3 bg-white">
-            <p className="eyebrow">Platform &amp; Infrastructure</p>
-            <h2 className="h2">Shared systems and operational backbone</h2>
-            <p className="prose">
-              These platforms ensure resilience, security, and continuity across
-              the group.
-            </p>
-          </div>
-          <div className="grid gap-6 md:grid-cols-2">
-            {platform.map((brand) => (
-              <BrandCard key={brand.name} brand={brand} />
-            ))}
-          </div>
-          <div className="panel">
-            <LogoWall brands={platform} />
-          </div>
-        </section>
-
-        <section className="chapter space-y-6">
-          <div className="panel space-y-3 bg-white">
-            <p className="eyebrow">Funnel/SEO brands</p>
-            <h2 className="h2">Specialized digital acquisition assets</h2>
-            <p className="prose">
-              Focused brands supporting acquisition and conversion programs under
-              shared governance standards.
-            </p>
-          </div>
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {funnel.map((brand) => (
-              <BrandCard key={brand.name} brand={brand} />
-            ))}
-          </div>
-          <div className="panel">
-            <LogoWall brands={funnel} />
+            <LogoWall brands={brands} />
           </div>
         </section>
       </div>
