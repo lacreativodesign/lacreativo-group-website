@@ -28,24 +28,24 @@ export default function Home() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
       />
 
-      {/* HERO (full-bleed background image + left fade overlay) */}
-      <section className="section relative overflow-hidden">
-        {/* Background image layer */}
+      {/* HERO: Full-bleed image with left editorial overlay */}
+      <section className="relative overflow-hidden">
+        {/* Background image (right stays visible) */}
         <div className="absolute inset-0">
+          {/* Use <img> for a simple, dependency-free hero background */}
           <img
             src="/images/ai/hero.jpg"
-            alt="Executive boardroom setting"
+            alt="Executive boardroom scene"
             className="h-full w-full object-cover object-right"
             loading="eager"
           />
-          {/* Fade-to-white overlay for readable text on left */}
-          <div className="absolute inset-0 bg-gradient-to-r from-white via-white/90 to-white/10" />
+          {/* Soft fade from left to right so text remains readable */}
+          <div className="absolute inset-0 bg-gradient-to-r from-white via-white/85 to-transparent" />
         </div>
 
-        {/* Content layer */}
         <div className="container relative">
-          <div className="grid gap-10 lg:grid-cols-12 lg:items-center">
-            <div className="space-y-6 lg:col-span-7">
+          <div className="grid min-h-[560px] items-center py-16 lg:min-h-[640px] lg:py-20">
+            <div className="max-w-2xl space-y-6">
               <p className="eyebrow">Holding Company</p>
               <h1 className="h1">
                 A Holding Group Built on Trust, Discipline, and Purpose
@@ -56,6 +56,7 @@ export default function Home() {
                 prioritize continuity, measured growth, and accountable reporting
                 across every operating entity.
               </p>
+
               <Link
                 href="/who-we-are"
                 className="link-underline text-sm font-semibold text-[color:var(--ink)]"
@@ -63,9 +64,6 @@ export default function Home() {
                 Who We Are
               </Link>
             </div>
-
-            {/* Right spacer column keeps the hero image visible on large screens */}
-            <div className="hidden lg:block lg:col-span-5" />
           </div>
         </div>
       </section>
@@ -92,6 +90,7 @@ export default function Home() {
               governance and shared resources.
             </p>
           </div>
+
           <div className="lg:col-span-6">
             <div className="panel space-y-4 lg:mt-6">
               <p className="prose">
@@ -134,6 +133,7 @@ export default function Home() {
               focused on governance, operational integrity, and long-term value.
             </p>
           </div>
+
           <div className="grid gap-6 lg:grid-cols-3">
             {[
               {
@@ -174,6 +174,7 @@ export default function Home() {
               flagship, platform, and funnel-focused brands.
             </p>
           </div>
+
           <div className="panel">
             <div className="grid grid-cols-2 gap-4 lg:grid-cols-5">
               {brands.map((brand) => (
