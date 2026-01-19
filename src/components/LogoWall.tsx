@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import type { Brand } from "@/lib/brands";
 
 interface LogoWallProps {
@@ -13,13 +14,20 @@ export default function LogoWall({ brands }: LogoWallProps) {
           key={brand.name}
           className="flex h-20 items-center justify-center rounded-lg border border-[color:var(--border)] bg-white px-4"
         >
-          <Image
-            src={brand.logoPath}
-            alt={`${brand.name} logo`}
-            width={140}
-            height={70}
-            className="h-10 w-auto object-contain"
-          />
+          <Link
+            href={brand.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center justify-center"
+          >
+            <Image
+              src={brand.logoPath}
+              alt={`${brand.name} logo`}
+              width={140}
+              height={70}
+              className="h-10 w-auto object-contain"
+            />
+          </Link>
         </div>
       ))}
     </div>

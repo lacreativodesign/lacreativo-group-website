@@ -28,8 +28,8 @@ export default function Navbar() {
             height={48}
             className="h-10 w-auto object-contain"
           />
-          <span className="hidden text-xs font-semibold uppercase tracking-[0.28em] text-[color:var(--muted)] sm:inline">
-            LA CREATIVO GROUP
+          <span className="hidden text-xs font-semibold uppercase tracking-[0.2em] text-[color:var(--muted)] sm:inline">
+            LA CREATIVO GROUP, LLC
           </span>
         </Link>
         <nav className="hidden items-center gap-7 text-sm font-semibold text-[color:var(--ink)] md:flex">

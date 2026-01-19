@@ -44,7 +44,7 @@ export default function Home() {
         </div>
 
         <div className="container relative">
-          <div className="grid min-h-[520px] items-center py-12 lg:min-h-[600px] lg:py-16">
+          <div className="grid min-h-[480px] items-center py-10 lg:min-h-[540px] lg:py-14">
             <div className="max-w-2xl space-y-4">
               <p className="eyebrow">Holding Company</p>
               <h1 className="h1">
@@ -68,11 +68,32 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="section py-8 lg:py-10">
+        <div className="container grid gap-6 lg:grid-cols-[1.1fr_1fr]">
+          <div className="space-y-3">
+            <p className="eyebrow">Operating posture</p>
+            <h2 className="h2">Dense oversight with clear accountability</h2>
+          </div>
+          <div className="space-y-4">
+            <p className="prose">
+              Our model is intentionally lean: centralized governance, consistent
+              reporting, and measured decision-making that keeps each operating
+              company focused on execution.
+            </p>
+            <p className="prose">
+              We maintain a tight cadence for financial review, operational
+              control, and leadership alignment to ensure continuity across the
+              portfolio.
+            </p>
+          </div>
+        </div>
+      </section>
+
       <div className="container">
         <div className="rule" />
       </div>
 
-      <section className="section py-12 lg:py-16">
+      <section className="section py-10 lg:py-14">
         <div className="container chapter grid gap-10 lg:grid-cols-12">
           <div className="space-y-5 lg:col-span-6">
             <p className="eyebrow">What We Are</p>
@@ -120,7 +141,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="section py-12 lg:py-16">
+      <section className="section py-10 lg:py-14">
         <div className="container chapter space-y-8">
           <div className="space-y-4">
             <p className="eyebrow">How We Operate</p>
@@ -161,21 +182,24 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="section bg-[color:var(--surface)] py-12 lg:py-16">
+      <section className="section bg-[color:var(--surface)] py-10 lg:py-14">
         <div className="container chapter space-y-8">
           <div className="space-y-4">
             <p className="eyebrow">Portfolio at a Glance</p>
             <h2 className="h2">Operating brands under disciplined oversight</h2>
             <p className="prose">
-              The group oversees a focused set of operating companies across
-              flagship, platform, and funnel-focused brands.
+              The group oversees five operating companies aligned to disciplined
+              reporting standards and long-term stewardship.
             </p>
           </div>
 
           <div className="grid grid-cols-2 gap-x-8 gap-y-6 border-y border-[color:var(--border)] py-6 lg:grid-cols-5 lg:py-8">
             {brands.map((brand) => (
-              <div
+              <Link
                 key={brand.name}
+                href={brand.href}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="flex min-h-[72px] items-center justify-center px-4"
               >
                 <Image
@@ -185,21 +209,20 @@ export default function Home() {
                   height={70}
                   className="h-10 w-auto object-contain"
                 />
-              </div>
+              </Link>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="section py-12 lg:py-16">
+      <section className="section py-8 lg:py-10">
         <div className="container chapter">
-          <div className="space-y-4 border-t border-[color:var(--border)] pt-6">
+          <div className="space-y-3 border-t border-[color:var(--border)] pt-6">
             <p className="eyebrow">Administrative Notice</p>
             <h2 className="h2">Administrative inquiries only</h2>
-            <p className="prose">
-              For administrative matters, contact
+            <p className="prose max-w-2xl">
+              For administrative matters, contact{" "}
               <span className="font-semibold text-[color:var(--ink)]">
-                {" "}
                 info@lacreativogroup.com
               </span>
               . Sales outreach is not monitored.

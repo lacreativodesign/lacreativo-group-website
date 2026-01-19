@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import type { Brand } from "@/lib/brands";
 
 interface BrandCardProps {
@@ -9,7 +10,12 @@ export default function BrandCard({ brand }: BrandCardProps) {
   return (
     <div className="panel flex h-full flex-col justify-between gap-4 bg-white">
       <div className="space-y-4">
-        <div className="flex h-12 items-center">
+        <Link
+          href={brand.href}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex h-12 items-center"
+        >
           <Image
             src={brand.logoPath}
             alt={`${brand.name} logo`}
@@ -17,14 +23,16 @@ export default function BrandCard({ brand }: BrandCardProps) {
             height={70}
             className="h-10 w-auto object-contain"
           />
-        </div>
+        </Link>
         <div>
-          <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[color:var(--muted)]">
-            {brand.category}
-          </p>
-          <h3 className="mt-2 text-lg font-semibold text-[color:var(--ink)]">
+          <Link
+            href={brand.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="link-underline text-lg font-semibold text-[color:var(--ink)]"
+          >
             {brand.name}
-          </h3>
+          </Link>
         </div>
         <p className="text-sm text-[color:var(--muted)]">{brand.description}</p>
       </div>
